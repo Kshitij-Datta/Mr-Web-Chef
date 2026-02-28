@@ -203,3 +203,58 @@ li:not(:last-child) {
   color: #666;
   margin-top: 20px;
 }
+
+/* ========================================= */
+/* MOBILE RESPONSIVE ADJUSTMENTS       */
+/* ========================================= */
+
+@media (max-width: 600px) {
+  header {
+    height: auto;
+    padding: 15px 10px;
+    flex-wrap: wrap;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  .main-content {
+    padding: 15px;
+  }
+
+  .inputProducts {
+    flex-direction: column;
+    width: 100%;
+    margin: 15px 0;
+  }
+
+  .inputProducts input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .inputProducts button {
+    width: 100%;
+  }
+
+  ul {
+    font-size: 1.2rem;
+  }
+
+  .ready-recipe-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+    padding: 20px 15px;
+  }
+
+  .ready-recipe-container button {
+    width: 100%;
+  }
+
+  .recipe-container {
+    padding: 15px;
+    margin-top: 25px;
+  }
+}
