@@ -16,7 +16,7 @@ export default function Main() {
 
   async function getRecipe() {
     setIsLoading(true);
-    setRecipeMarkdown(""); // Clear previous recipe
+    setRecipeMarkdown("");
     try {
       const res = await fetch("/api/recipe", {
         method: "POST",
