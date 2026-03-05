@@ -5,14 +5,14 @@ import { GenerateRecipe } from "./GenerateRecipe";
 export default function Main() {
   const [ingredients, setIngredients] = useState([]);
 
+  const [recipeMarkdown, setRecipeMarkdown] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
   function removeIngredient(index) {
     setIngredients((prevIngredients) =>
       prevIngredients.filter((_, i) => i !== index),
     );
   }
-
-  const [recipeMarkdown, setRecipeMarkdown] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
 
   async function getRecipe() {
     setIsLoading(true);
