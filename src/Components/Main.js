@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Refrigerator } from "lucide-react"; // [1] Add this import
 import { TheIngredients } from "./TheIngredients";
 import { GenerateRecipe } from "./GenerateRecipe";
 
@@ -59,6 +60,14 @@ export default function Main() {
         />
         <button>+ Add Item</button>
       </form>
+
+      {ingredients.length === 0 && !recipeMarkdown && !isLoading && (
+        <div className="empty-state">
+          <Refrigerator size={80} strokeWidth={1} color="#ccc" />
+          <p>What's in your fridge?</p>
+          <span>Add at least 4 ingredients to get a custom recipe.</span>
+        </div>
+      )}
 
       {ingredients.length > 0 && (
         <TheIngredients
