@@ -1,3 +1,5 @@
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+
 const express = require("express");
 const { GoogleGenAI } = require("@google/genai");
 const dotenv = require("dotenv");
@@ -17,11 +19,14 @@ app.post("/api/recipe", async (req, res) => {
   try {
     const { ingredients } = req.body;
     const response = await ai.models.generateContent({
-      model: "gemini-3-flash-preview",
-      contents: `I have these ingredients: ${ingredients.join(", ")}. Suggest a recipe.`,
-      config: {
-        systemInstruction: "You are a chef. Suggest a recipe in Markdown.",
-      },
+      model: "gemini-3.1-flash-lite-preview",
+      systemInstruction: "You are a chef. Suggest a recipe in Markdown.",
+      contents: [
+        {
+          role: "user",
+          parts: [{ text: `Ingredients: ${ingredients.join(", ")}` }],
+        },
+      ],
     });
     res.json({ recipe: response.text });
   } catch (error) {
